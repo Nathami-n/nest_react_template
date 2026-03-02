@@ -37,8 +37,8 @@ export const links: Route.LinksFunction = () => [
 ];
 
 export const meta: Route.MetaFunction = () => constructMetadata({
-  title: "Pay and get paid with ease",
-  description: "Secure, fast, and reliable payment solution for your business. Accept payments via M-Pesa, Card, and Bank Transfer.",
+  title: "Template - Nest React Template",
+  description: "A template for building React applications with NestJS backend.",
 });
 
 export function Layout({ children }: { children: React.ReactNode }) {
