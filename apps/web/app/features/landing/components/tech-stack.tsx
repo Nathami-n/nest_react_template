@@ -28,7 +28,7 @@ const techStack = {
 export function TechStack() {
   return (
     <section id="tech-stack" className="py-24">
-      <div className="container">
+      <div className="container px-4 sm:px-6 lg:px-8">
         <div className="text-center max-w-3xl mx-auto mb-16">
           <h2 className="text-3xl font-bold tracking-tight sm:text-4xl mb-4">
             Built with modern technologies
@@ -39,7 +39,7 @@ export function TechStack() {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {Object.entries(techStack).map(([category, items]) => (
             <div key={category} className="space-y-4">
               <h3 className="text-xl font-semibold mb-4 flex items-center gap-2">

@@ -6,7 +6,7 @@ export function CTA() {
     <section className="py-24 relative overflow-hidden">
       <div className="absolute inset-0 bg-gradient-to-b from-primary/5 to-transparent" />
 
-      <div className="container relative z-10">
+      <div className="container px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="max-w-3xl mx-auto text-center">
           <h2 className="text-3xl font-bold tracking-tight sm:text-5xl mb-6">
             Start building today

@@ -1,4 +1,5 @@
 import { SignupForm, signupMutation, authApi } from "@/features/auth";
+import { Logo } from "@repo/ui/components";
 import { href, redirect, useNavigate } from "react-router";
 import { getUserSessionFromServer } from "@repo/utils";
 import { VITE_API_URL } from "@/env/env.client";
@@ -34,13 +35,15 @@ export default function SignupRoute() {
   };
 
   return (
-    <div className="flex min-h-screen items-center justify-center bg-background px-4">
+    <div className="flex min-h-screen items-center justify-center bg-muted/30 px-4">
       <div className="w-full max-w-md space-y-6">
-        <div className="space-y-2 text-center">
-          <h1 className="text-3xl font-bold tracking-tight">
-            Create an account
-          </h1>
-          <p className="text-muted-foreground">Get started with your account</p>
+        <div className="flex justify-center">
+          <Logo
+            size="md"
+            showText
+            text="NestReact"
+            className="justify-center"
+          />
         </div>
 
         <SignupForm

@@ -13,7 +13,7 @@ export function Hero() {
         <div className="bg-gradient-to-tl from-primary/30 via-primary/10 to-background blur-3xl w-[90rem] h-[50rem] rounded-full origin-top-left -rotate-12 -translate-x-[15rem] dark:from-indigo-500/10" />
       </div>
 
-      <div className="container relative z-10 flex flex-col items-center text-center">
+      <div className="container px-4 sm:px-6 lg:px-8 relative z-10 flex flex-col items-center text-center">
         <div className="inline-flex items-center gap-2 rounded-full border px-3 py-1 text-sm font-medium backdrop-blur-sm mb-6 bg-background/50">
           <span className="flex size-2 rounded-full bg-primary animate-pulse"></span>
           <span className="text-muted-foreground">
