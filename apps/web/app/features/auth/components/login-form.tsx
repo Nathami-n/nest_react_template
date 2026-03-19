@@ -69,17 +69,20 @@ export function LoginForm({
         {fields.map((field) => (
           <FormField
             key={field.name}
-            control={form.control}
+            control={form.control as any}
             name={field.name as keyof LoginInput}
           >
             <FormLabel>{field.label}</FormLabel>
             <FormControl>
-              <Input
-                type={field.type}
-                placeholder={field.placeholder}
-                autoComplete={field.autoComplete}
-                disabled={isLoading}
-              />
+              {({ field: fieldProps }) => (
+                <Input
+                  {...fieldProps}
+                  type={field.type}
+                  placeholder={field.placeholder}
+                  autoComplete={field.autoComplete}
+                  disabled={isLoading}
+                />
+              )}
             </FormControl>
             <FormMessage />
           </FormField>
