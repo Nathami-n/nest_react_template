@@ -6,17 +6,23 @@ import {
   Scripts,
   ScrollRestoration,
   Link,
+  useNavigate,
 } from "react-router";
 import { QueryClientProvider } from "@tanstack/react-query";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 import { queryClient } from "./lib/query-client";
+import { useEffect } from "react";
 
 import type { Route } from "./+types/root";
 import "@repo/ui/globals.css";
 import { Toaster, Button } from "@repo/ui/components";
 import { constructMetadata } from "./utils";
 import { HugeiconsIcon } from "@hugeicons/react";
-import { Alert02Icon, Home01Icon, ArrowLeft02Icon } from "@hugeicons/core-free-icons";
+import {
+  Alert02Icon,
+  Home01Icon,
+  ArrowLeft02Icon,
+} from "@hugeicons/core-free-icons";
 
 export const links: Route.LinksFunction = () => [
   { rel: "preconnect", href: "https://fonts.googleapis.com" },
@@ -32,14 +38,16 @@ export const links: Route.LinksFunction = () => [
   {
     rel: "icon",
     type: "image/svg+xml",
-    href: "/favicon.svg"
-  }
+    href: "/favicon.svg",
+  },
 ];
 
-export const meta: Route.MetaFunction = () => constructMetadata({
-  title: "Template - Nest React Template",
-  description: "A template for building React applications with NestJS backend.",
-});
+export const meta: Route.MetaFunction = () =>
+  constructMetadata({
+    title: "Template - Nest React Template",
+    description:
+      "A template for building React applications with NestJS backend.",
+  });
 
 export function Layout({ children }: { children: React.ReactNode }) {
   return (
@@ -60,6 +68,23 @@ export function Layout({ children }: { children: React.ReactNode }) {
 }
 
 export default function App() {
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    // Listen for auth:unauthorized events (e.g., from API interceptors)
+    const handleUnauthorized = () => {
+      // Just log for now - toast is imported from sonner directly
+      console.warn("Session expired. Please log in again.");
+      navigate("/auth/login");
+    };
+
+    window.addEventListener("auth:unauthorized", handleUnauthorized);
+
+    return () => {
+      window.removeEventListener("auth:unauthorized", handleUnauthorized);
+    };
+  }, [navigate]);
+
   return (
     <QueryClientProvider client={queryClient}>
       <Toaster richColors expand />
@@ -90,7 +115,9 @@ export function ErrorBoundary({ error }: Route.ErrorBoundaryProps) {
       <main className="flex min-h-screen flex-col items-center justify-center bg-background text-center px-4 relative overflow-hidden">
         {/* Decorative background elements */}
         <div className="absolute inset-0 flex items-center justify-center -z-10">
-          <div className="text-[15rem] md:text-[20rem] font-black text-muted/20 select-none">404</div>
+          <div className="text-[15rem] md:text-[20rem] font-black text-muted/20 select-none">
+            404
+          </div>
         </div>
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[400px] bg-primary/5 blur-[100px] rounded-full -z-10" />
 
@@ -102,7 +129,8 @@ export function ErrorBoundary({ error }: Route.ErrorBoundaryProps) {
           Page not found
         </h1>
         <p className="text-lg text-muted-foreground max-w-md mb-8 text-balance">
-          Sorry, we couldn't find the page you're looking for. It might have been removed, renamed, or doesn't exist.
+          Sorry, we couldn't find the page you're looking for. It might have
+          been removed, renamed, or doesn't exist.
         </p>
 
         <div className="flex flex-col sm:flex-row gap-4">
@@ -112,7 +140,12 @@ export function ErrorBoundary({ error }: Route.ErrorBoundaryProps) {
               Go Home
             </Link>
           </Button>
-          <Button variant="outline" size="lg" className="h-12 px-8 cursor-pointer" onClick={() => window.history.back()}>
+          <Button
+            variant="outline"
+            size="lg"
+            className="h-12 px-8 cursor-pointer"
+            onClick={() => window.history.back()}
+          >
             <HugeiconsIcon icon={ArrowLeft02Icon} className="mr-2 size-5" />
             Go Back
           </Button>

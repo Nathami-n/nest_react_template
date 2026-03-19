@@ -1,0 +1,78 @@
+// This is your Prisma schema file
+// Learn more: https://pris.ly/d/prisma-schema
+
+generator client {
+    provider = "prisma-client-js"
+}
+
+datasource db {
+    provider = "postgresql"
+}
+
+enum UserRole {
+    PLATFORM_ADMIN // Internal platform administrators
+    ADMIN // Organization/company admins
+    USER // Regular users
+}
+
+model User {
+    id       String   @id @default(cuid())
+    email    String   @unique
+    password String? // Null for OAuth users
+    name     String?
+    role     UserRole @default(USER)
+
+    // OAuth fields
+    provider   String? // 'local', 'google', etc.
+    providerId String? // OAuth provider user ID
+    image      String?
+
+    // Contact
+    phone String?
+
+    // Verification & Status
+    emailVerified Boolean @default(false)
+    phoneVerified Boolean @default(false)
+    isActive      Boolean @default(true)
+
+    // Timestamps
+    createdAt DateTime @default(now())
+    updatedAt DateTime @updatedAt
+
+    // Relations
+    sessions           Session[]
+    verificationTokens VerificationToken[]
+
+    @@index([email])
+    @@map("users")
+}
+
+model Session {
+    id           String   @id @default(cuid())
+    userId       String
+    refreshToken String   @unique
+    expiresAt    DateTime
+    isRevoked    Boolean  @default(false)
+    createdAt    DateTime @default(now())
+
+    user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+    @@index([userId])
+    @@index([refreshToken])
+    @@map("sessions")
+}
+
+model VerificationToken {
+    id        String   @id @default(cuid())
+    userId    String
+    token     String   @unique
+    type      String // 'email_verification', 'password_reset'
+    expiresAt DateTime
+    createdAt DateTime @default(now())
+
+    user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+    @@index([userId])
+    @@index([token])
+    @@map("verification_tokens")
+}

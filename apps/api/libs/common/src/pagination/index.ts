@@ -1,0 +1,1 @@
+export * from '@app/common/pagination/pagination-response.dto';
