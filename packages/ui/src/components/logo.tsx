@@ -13,15 +13,18 @@ interface LogoProps {
   className?: string;
   showText?: boolean;
   text?: string;
+  /** "horizontal" = icon + text side by side (default). "vertical" = icon above text. */
+  direction?: "horizontal" | "vertical";
   variant?: "default" | "icon-only";
   onClick?: () => void;
 }
 
-const sizeClasses = {
-  sm: "h-8",
-  md: "h-10",
-  lg: "h-12",
-  xl: "h-16",
+// Use size-* (both w and h) so the SVG never stretches
+const iconSizeClasses = {
+  sm: "size-6",
+  md: "size-8",
+  lg: "size-10",
+  xl: "size-14",
 };
 
 const textSizeClasses = {
@@ -33,8 +36,6 @@ const textSizeClasses = {
 
 const DefaultLogoSvg = ({ className }: { className?: string }) => (
   <svg
-    width="100%"
-    height="100%"
     viewBox="0 0 40 40"
     fill="none"
     xmlns="http://www.w3.org/2000/svg"
@@ -57,6 +58,7 @@ function Logo({
   className,
   showText = false,
   text,
+  direction = "horizontal",
   variant = "default",
   onClick,
 }: LogoProps) {
@@ -66,14 +68,14 @@ function Logo({
         <img
           src={src}
           alt={alt}
-          className={cn("object-contain", sizeClasses[size])}
+          className={cn("object-contain shrink-0", iconSizeClasses[size])}
         />
       );
     }
 
     if (icon || fallbackIcon) {
       return (
-        <div className={cn(sizeClasses[size], "shrink-0")}>
+        <div className={cn(iconSizeClasses[size], "shrink-0")}>
           {icon || fallbackIcon}
         </div>
       );
@@ -89,31 +91,40 @@ function Logo({
 
     return (
       <DefaultLogoSvg
-        className={cn("text-primary", sizeClasses[size], "shrink-0")}
+        className={cn("text-primary shrink-0", iconSizeClasses[size])}
       />
     );
   };
 
   if (variant === "icon-only") {
     return (
-      <div className={cn("flex items-center", className)}>
+      <div className={cn("flex items-center", className)} onClick={onClick}>
         {renderLogoContent()}
       </div>
     );
   }
 
+  const isVertical = direction === "vertical";
+
   return (
     <div
       className={cn(
         "flex items-center gap-2",
-        className,
+        isVertical && "flex-col gap-2",
         onClick && "cursor-pointer",
+        className,
       )}
       onClick={onClick}
     >
       {renderLogoContent()}
       {showText && text && (
-        <span className={cn("font-semibold", textSizeClasses[size])}>
+        <span
+          className={cn(
+            "font-semibold",
+            textSizeClasses[size],
+            isVertical && "text-center",
+          )}
+        >
           {text}
         </span>
       )}

@@ -8,7 +8,7 @@ export function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           <div className="col-span-1 md:col-span-2 flex flex-col items-start">
             <div className="mb-4">
-              <Logo showText text="NestReact" />
+              <Logo showText text="NestReact" direction="horizontal" />
             </div>
             <p className="text-sm text-muted-foreground leading-relaxed">
               A production-ready monorepo starter for building scalable web

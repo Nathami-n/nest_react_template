@@ -7,7 +7,7 @@ export function Navbar({ userLoggedIn }: { userLoggedIn?: boolean }) {
       <div className="container flex h-16 items-center">
         <div className="flex-1 flex items-center">
           <Link to="/">
-            <Logo size="sm" showText text="NestReact" />
+            <Logo size="sm" showText text="NestReact" direction="horizontal" />
           </Link>
         </div>
 

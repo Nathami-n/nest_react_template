@@ -38,12 +38,7 @@ export default function LoginRoute() {
     <div className="flex min-h-screen items-center justify-center bg-muted/30 px-4">
       <div className="w-full max-w-md space-y-6">
         <div className="flex justify-center">
-          <Logo
-            size="md"
-            showText
-            text="NestReact"
-            className="justify-center"
-          />
+          <Logo size="lg" showText text="NestReact" direction="vertical" />
         </div>
 
         <LoginForm
