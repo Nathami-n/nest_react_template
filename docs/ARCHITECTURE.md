@@ -53,10 +53,10 @@ monorepo/
 
 ### Why Monorepo?
 
-✅ **Shared Code** - Reuse types, validation, components  
-✅ **Atomic Changes** - Update API and frontend together  
-✅ **Consistency** - Single lint/test/build config  
-✅ **Developer Experience** - One repo to clone
+- **Shared Code** - Reuse types, validation, components
+- **Atomic Changes** - Update API and frontend together
+- **Consistency** - Single lint/test/build config
+- **Developer Experience** - One repo to clone
 
 ---
 
@@ -198,15 +198,15 @@ Strategic indexes for performance:
 
 ### Implemented
 
-✅ **Password Hashing** - bcrypt with salt  
-✅ **HTTP-Only Cookies** - XSS protection  
-✅ **JWT Signature** - Tamper-proof tokens  
-✅ **Token Rotation** - Refresh token rotation  
-✅ **Session Revocation** - Logout invalidates tokens  
-✅ **Rate Limiting** - Prevent brute force  
-✅ **CORS** - Whitelist origins  
-✅ **Helmet** - Security headers  
-✅ **Input Validation** - class-validator + Zod
+- **Password Hashing** - bcrypt with salt
+- **HTTP-Only Cookies** - XSS protection
+- **JWT Signature** - Tamper-proof tokens
+- **Token Rotation** - Refresh token rotation
+- **Session Revocation** - Logout invalidates tokens
+- **Rate Limiting** - Prevent brute force
+- **CORS** - Whitelist origins
+- **Helmet** - Security headers
+- **Input Validation** - class-validator + Zod
 
 ### Production Checklist
 
@@ -273,11 +273,11 @@ Consistent structure for all endpoints:
 
 ### Why TanStack Query?
 
-✅ Automatic caching  
-✅ Background refetching  
-✅ Optimistic updates  
-✅ Type-safe with TypeScript  
-✅ DevTools included
+- Automatic caching
+- Background refetching
+- Optimistic updates
+- Type-safe with TypeScript
+- DevTools included
 
 ---
 

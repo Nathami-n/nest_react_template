@@ -3,13 +3,20 @@ import { getUserSessionFromServer } from "@repo/utils";
 import { VITE_API_URL } from "@/env/env.client";
 
 export const clientLoader = async () => {
-  const { data: user, success } = await getUserSessionFromServer(VITE_API_URL);
+  try {
+    const { data: user, success } =
+      await getUserSessionFromServer(VITE_API_URL);
 
-  if (success && user) {
-    return { userLoggedIn: true };
+    if (success && user) {
+      return { userLoggedIn: true };
+    }
+
+    return { userLoggedIn: false };
+  } catch (error) {
+    // If API is not available, just show landing page
+    console.warn("Could not fetch user session:", error);
+    return { userLoggedIn: false };
   }
-
-  return { userLoggedIn: false };
 };
 
 export default function Home({ loaderData }: any) {

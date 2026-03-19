@@ -2,9 +2,9 @@
 
 A production-ready, fully-type safe monorepo template featuring NestJS backend with authentication and React Router frontend. Perfect for quickly scaffolding new full-stack projects.
 
-##  Features
+## Features
 
-###  Backend (NestJS)
+### Backend (NestJS)
 
 - **Complete Authentication System**
   - Email/password authentication with bcrypt
@@ -36,7 +36,7 @@ A production-ready, fully-type safe monorepo template featuring NestJS backend w
   - Winston logging
   - API versioning
 
-### ✅ Frontend (React)
+### Frontend (React)
 
 - React Router v7
 - TanStack Query (React Query)
@@ -44,7 +44,7 @@ A production-ready, fully-type safe monorepo template featuring NestJS backend w
 - TypeScript
 - Zod validation
 
-### ✅ Shared Packages
+### Shared Packages
 
 - `@repo/validation` - Shared Zod schemas & types
 - `@repo/ui` - Component library
@@ -54,14 +54,14 @@ A production-ready, fully-type safe monorepo template featuring NestJS backend w
 - `@repo/typescript-config` - Shared TS configs
 - `@repo/eslint-config` - Shared linting rules
 
-## 📋 Prerequisites
+## Prerequisites
 
 - Node.js 18+
 - pnpm 8+
 - PostgreSQL (or use Docker Compose)
 - Docker (optional, for containerized services)
 
-## 🏁 Quick Start
+## Quick Start
 
 ### 1. Clone & Install
 
@@ -133,13 +133,13 @@ This starts:
 - **Frontend**: http://localhost:5173
 - **API Docs**: http://localhost:3000/api/docs
 
-## 📚 Documentation
+## Documentation
 
 - [Quick Start Guide](docs/QUICKSTART.md)
 - [API Documentation](docs/API.md)
 - [Architecture Overview](docs/ARCHITECTURE.md)
 
-## 🏗 Project Structure
+## Project Structure
 
 \`\`\`
 monorepo/
@@ -174,7 +174,7 @@ monorepo/
 └── pnpm-workspace.yaml
 \`\`\`
 
-## 🔐 Authentication Endpoints
+## Authentication Endpoints
 
 | Method | Endpoint                       | Description               |
 | ------ | ------------------------------ | ------------------------- |
@@ -190,7 +190,7 @@ monorepo/
 | GET    | `/api/v1/auth/google`          | Initiate Google OAuth     |
 | GET    | `/api/v1/auth/google/callback` | Google OAuth callback     |
 
-## 🧩 Adding New Features
+## Adding New Features
 
 The `example` module demonstrates best practices for adding new features:
 
@@ -227,7 +227,7 @@ apps/api/apps/api/src/modules/example/
 5. **Create Controller** - API endpoints
 6. **Register Module** in `api.module.ts`
 
-## 🧪 Testing
+## Testing
 
 ### Unit Tests
 
@@ -247,7 +247,7 @@ pnpm test:e2e
 pnpm test:cov
 \`\`\`
 
-## 🐳 Docker Deployment
+## Docker Deployment
 
 ### Build Production Image
 
@@ -262,7 +262,7 @@ docker build -t your-api:latest .
 docker-compose up -d
 \`\`\`
 
-## 🔧 Environment Variables
+## Environment Variables
 
 See [`.env.example`](apps/api/.env.example) for all configuration options.
 
@@ -279,7 +279,7 @@ See [`.env.example`](apps/api/.env.example) for all configuration options.
 - `EMAIL_HOST` - SMTP server
 - `EMAIL_PORT` - SMTP port
 
-## 📝 Scripts
+## Scripts
 
 ### Root Level
 
@@ -294,7 +294,7 @@ See [`.env.example`](apps/api/.env.example) for all configuration options.
 - `pnpm --filter @repo/api prisma:studio` - Open Prisma Studio
 - `pnpm --filter @repo/api prisma:migrate` - Run migrations
 
-## 🤝 Contributing
+## Contributing
 
 1. Fork the repository
 2. Create a feature branch
@@ -302,11 +302,11 @@ See [`.env.example`](apps/api/.env.example) for all configuration options.
 4. Push to the branch
 5. Open a Pull Request
 
-## 📄 License
+## License
 
 MIT
 
-## 💡 Tips
+## Tips
 
 - Check MailHog UI at http://localhost:8025 for development emails
 - Use Prisma Studio for database browsing: `pnpm prisma:studio`
@@ -316,4 +316,4 @@ MIT
 
 ---
 
-**Built with ❤️ using NestJS, React, and TypeScript**
+**Built with NestJS, React, and TypeScript**

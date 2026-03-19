@@ -6,9 +6,9 @@ Get your NestJS + React monorepo running in less than 5 minutes!
 
 Before starting, ensure you have:
 
-- ✅ Node.js 18+ (`node --version`)
-- ✅ pnpm installed (`npm install -g pnpm`)
-- ✅ Docker (optional, for easy database setup)
+- Node.js 18+ (`node --version`)
+- pnpm installed (`npm install -g pnpm`)
+- Docker (optional, for easy database setup)
 
 ## Step-by-Step Setup
 
@@ -37,7 +37,7 @@ cd apps/api
 cp .env.example .env
 \`\`\`
 
-The defaults work out of the box! 🎉
+The defaults work out of the box!
 
 ### 4. Setup Database (1 min)
 
@@ -58,14 +58,14 @@ cd ../..
 pnpm dev
 \`\`\`
 
-## ✅ You're Ready!
+## You're Ready!
 
 Your applications are now running:
 
-- 🚀 **API**: http://localhost:3000
-- 📖 **API Docs**: http://localhost:3000/api/docs
-- 🎨 **Frontend**: http://localhost:5173
-- 📧 **MailHog**: http://localhost:8025
+- **API**: http://localhost:3000
+- **API Docs**: http://localhost:3000/api/docs
+- **Frontend**: http://localhost:5173
+- **MailHog**: http://localhost:8025
 
 ## Test the Authentication
 
@@ -126,7 +126,7 @@ curl -X POST http://localhost:3000/api/v1/examples \\
 -d '{"title": "My First Example", "description": "Testing the API"}'
 \`\`\`
 
-## 🎓 Next Steps
+## Next Steps
 
 ### Explore the Codebase
 
@@ -166,7 +166,7 @@ pnpm prisma:studio
 
 Opens Prisma Studio at http://localhost:5555
 
-## 🐛 Troubleshooting
+## Troubleshooting
 
 **Database connection failed?**
 
@@ -188,16 +188,16 @@ Opens Prisma Studio at http://localhost:5555
 - Check MailHog is running: http://localhost:8025
 - Verify EMAIL_HOST and EMAIL_PORT in `.env`
 
-## 🚀 Ready to Build!
+## Ready to Build!
 
 You now have:
 
-- ✅ Full authentication system
-- ✅ Example CRUD module
-- ✅ Email service
-- ✅ Database with Prisma
-- ✅ Type-safe frontend
-- ✅ API documentation
+- Full authentication system
+- Example CRUD module
+- Email service
+- Database with Prisma
+- Type-safe frontend
+- API documentation
 
 Start building your features! See [README.md](../README.md) for architecture details.
 
